@@ -199,7 +199,7 @@ func main() {
 
 	// Let's try to save a row that does not satisfy the required validations
 	_, err = hd.Save(&Fruit{})
-	if err == nil || err.Error() != "value not set" {
+	if err != nil && err.Error() != "value not set" {
 		panic("does not satisfy validations, should not save")
 	}
 
